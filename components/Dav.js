@@ -6,29 +6,31 @@ import React, { useRef } from "react";
 import { useGLTF } from "@react-three/drei";
 
 export function Dav(props) {
-  const { nodes, materials } = useGLTF("/3D SUBKIT PROINDECSA.gltf");
+  const { nodes, materials } = useGLTF("/4D SUBKIT PROINDECSA.gltf");
   return (
     <group {...props} dispose={null}>
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes["TQ_ARD-geom001"].geometry}
-        material={materials["TQ_ARD_front.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes["TQ_ARD-geom001_1"].geometry}
-        material={materials["TQ_ARD_back.001"]}
-      />
-      <mesh
-        castShadow
-        receiveShadow
-        geometry={nodes["TQ_ARD-geom001_2"].geometry}
-        material={materials["TQ_ARD_edge.001"]}
-      />
+      <group rotation={[-Math.PI, 0, -Math.PI]}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["TQ_ARD-geom002"].geometry}
+          material={materials["TQ_ARD_front.002"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["TQ_ARD-geom002_1"].geometry}
+          material={materials["TQ_ARD_back.002"]}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes["TQ_ARD-geom002_2"].geometry}
+          material={materials["TQ_ARD_edge.002"]}
+        />
+      </group>
     </group>
   );
 }
 
-useGLTF.preload("/3D SUBKIT PROINDECSA.gltf");
+useGLTF.preload("/4D SUBKIT PROINDECSA.gltf");
